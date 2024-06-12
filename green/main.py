@@ -11,11 +11,13 @@ def main(page: Page):
         url = "https://api.green-api.com/waInstance" + IdInstance.value + "/getSettings/" + APITokenInstance.value
         response = requests.request("GET", url, headers={}, data={})
         result.value = response.text.encode('utf8')
+        result.value = result.value.decode()
         page.update()
     def get_StateInstance_clicked(e):
         url = "https://api.green-api.com/waInstance" + IdInstance.value + "/getStateInstance/" + APITokenInstance.value
         response = requests.request("GET", url, headers={}, data={})
         result.value = response.text.encode('utf8')
+        result.value = result.value.decode()
         page.update()
     def send_Message_clicked(e):
         url = "https://api.green-api.com/waInstance" + IdInstance.value + "/sendMessage/" + APITokenInstance.value
@@ -25,6 +27,7 @@ def main(page: Page):
         headers = {'Content-Type': 'application/json'}
         response = requests.request("POST", url, headers=headers, data=payload)
         result.value = response.text.encode('utf8')
+        result.value = result.value.decode()
         page.update()
     def send_Pic_clicked(e):
         number = pic_number_field.value + personal_chat
@@ -34,6 +37,7 @@ def main(page: Page):
         headers = {'Content-Type': 'application/json'}
         response = requests.request("POST", url, headers=headers, data=payload)
         result.value = response.text.encode('utf8')
+        result.value = result.value.decode()
         page.update()
 
     #Поля и кнопки
